@@ -37,13 +37,13 @@ const PropertiesForRent = ({ propertiesForRent }) => {
                               </span>
                             </div>
                             <div className="card-price d-flex align-items-center justify-content-between">
-                                  <p>
-                                    <span className="price__num">
-                                      <NumericFormat value={propertyForRent.price} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
-                                    </span>
-                                    <span className="price__text">Price</span>
-                                  </p>
-                                <a href="#" className="btn-text">Details <i className="la la-angle-right"></i></a>
+                              <p>
+                                <span className="price__num">
+                                  <NumericFormat value={propertyForRent.price} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
+                                </span>
+                                <span className="price__text">Price</span>
+                              </p>
+                              <a href="#" className="btn-text">Details <i className="la la-angle-right"></i></a>
                             </div>
                         </div>
                       </div>
