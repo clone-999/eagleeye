@@ -41,12 +41,14 @@ const Search = ({ properties }) => {
                                                     <div className="row g-0">
                                                         <div className="col-8 px-4 p-3">
                                                             <h3 className="card-title">{property.title}</h3>
-                                                            <p className="card-meta"><i className="la la-map-marker"></i> {property.location[0].name}</p>
+                                                            <p className="card-meta">
+                                                                <i className="la la-map-marker"></i> 
+                                                                {property.location[0].name}</p>
                                                             <a className="ellipsisFIX go-text-right mob-fs14" href="#" onClick={ () => false } title="dubai"></a>
 
                                                             <div className="card-rating pt-0 pb-0">
                                                                 <span className="review__text">
-                                                                    <div className="stars la la-star"></div>
+                                                                    {property.category.map((category) => <span key={category.slug}>{category.name}, </span>)}
                                                                 </span>
                                                                 <hr style={{ margin:'8 0', color: '#c6ccd3' }} />
                                                                 <span className="rating__text">
@@ -56,8 +58,8 @@ const Search = ({ properties }) => {
                                                                     padding: '6px 11px',
                                                                     borderRadius: 18, 
                                                                     marginRight: 8
-                                                                    }}>4</span> 
-                                                                    Ratings
+                                                                    }}>{property.rooms}</span> 
+                                                                    Bed Rooms
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -73,19 +75,19 @@ const Search = ({ properties }) => {
                                                                 <div className="clear"></div>
                                                                 <div className="mb-0">
                                                                     <span className="price__num">
-                                                                        <small>AED</small> 
+                                                                        <small>AED </small> 
                                                                         <strong> 
                                                                             <NumericFormat value={property.price} displayType={'text'} thousandSeparator={true} /> 
-                                                                            <span className="prices">Price</span>
+                                                                            <span className="prices"></span>
                                                                         </strong>
                                                                         <div className="clear"></div>
                                                                     </span>
                                                                 </div>
                                                                 <div className="clear"></div>
-                                                                <p className="mb-1">{property.rentFrequency}</p>
+                                                                <p className="mb-1">{property?.rentFrequency}</p>
                                                                 <a href="#" className="more_details effect mt-0 btn-block" data-style="zoom-in">Details<i className="la la-angle-right"></i>
                                                                 </a>
-                                                                <span className="badge badge-success mt-2 btn-block">Discount  %</span>
+                                                                <span className="badge badge-success mt-2 btn-block">{property.agency.name}</span>
                                                             </div>
                                                         </div>
                                                     </div>
