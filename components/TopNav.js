@@ -18,7 +18,7 @@ const TopNav = () => {
                             <div className="header-top-content">
                                 <div className="header-left">
                                     <ul className="list-items">
-                                        <li><a href="tel:9715667777"> <i className="la la-phone mr-1"></i> +9715667777</a></li>
+                                        <li><a href="tel:9715667777"> <i className="la la-phone mr-1"></i> +971 52 886 1121</a></li>
                                         <li><a href="mailto:support@mobilies.io"><i className="la la-envelope mr-1"></i>support@mobilies.io</a></li>
                                     </ul>
                                 </div>
