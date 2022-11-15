@@ -1,5 +1,6 @@
 import React from 'react';
 import { NumericFormat } from 'react-number-format';
+import PropertyForSale from './PropertyForSale';
 
 const PropertiesForSale = ({ propertiesForSale }) => {
   return (
@@ -14,35 +15,7 @@ const PropertiesForSale = ({ propertiesForSale }) => {
             </div>
 
             <div className="row padding-top-50px">
-                {propertiesForSale.map((propertyForSale) => (
-                    <div key={propertyForSale.slug} className="col-lg-4">
-                        <a href="#">
-                            <div className="card-item destination-card">
-                                <div className="card-img">
-                                    <img src={propertyForSale.coverPhoto.url} className="" style={{height: 250}} alt="destination-img" />
-                                    <span className="badge">{propertyForSale.location[0].name}</span>
-                                </div>
-
-                                <div className="card-body mb-1">
-                                    <span className="ratings d-flex align-items-center mr-1">
-                                        <div className="stars la la-star-o"></div>
-                                        <span className="rating__text cw"> <small>( 0 )</small></span>
-                                        </span>
-                                    <h3 className="card-title">{propertyForSale.title}</h3>
-                                    <div className="card-rating d-flex align-items-center">
-                                    </div>
-                                    <div className="card-price d-flex align-items-center justify-content-between">
-                                        <p className="tour__text"> </p>
-                                        <p style={{paddingBottom: 15}}>
-                                            <span className="price__from">Price </span>
-                                            <span className="price__num"><strong><NumericFormat value={propertyForSale.price} displayType={'text'} thousandSeparator={true} prefix={'AED '} /></strong></span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                ))}
+                {propertiesForSale.map((propertyForSale) => <PropertyForSale key={propertyForSale.slug} propertyForSale={propertyForSale} />)}
             </div>
         </div>
     </section>

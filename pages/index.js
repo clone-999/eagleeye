@@ -5,12 +5,28 @@ import TopAgencies from "../components/TopAgencies";
 import PropertiesForRent from "../components/PropertiesForRent";
 import PropertiesForSale from "../components/PropertiesForSale";
 import SearchFilters from "../components/SearchFilters";
+import { SyncOutlined } from "@ant-design/icons";
 
 const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
+  const [loading, setLoading] = useState(false);
   
     return (
       <>
-        <section className="hero-wrapper">
+        {loading && 
+        <section className="info-area info-bg padding-top-50px padding-bottom-50px text-center">
+          <div className="container">
+            <div className="row text-center">
+              <div className="col-md-9 pb-5">
+                <div className="d-flex justify-content-center p-5">
+                  <SyncOutlined spin className="display-1 text-danger p-5" />
+                </div>
+              </div>
+              <div className="col-md-3"></div>
+            </div>
+          </div>
+        </section>}
+
+        {!loading && <section className="hero-wrapper">
           <div className="hero-box hero-bg active" data-bg="/assets/img/slider/bg1.jpg" style={{
             minHeight: 371,
             backgroundAttachment: 'fixed',
@@ -42,7 +58,7 @@ const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
                       </li>
                     </ul>
 
-                    <SearchFilters page={'none'} />
+                    <SearchFilters page={'none'} setLoading={setLoading} loading={loading} />
 
                   </div>
 
@@ -50,9 +66,9 @@ const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
               </div>
             </div>
           </div>
-        </section>
+        </section> }
 
-        <section className="info-area info-bg padding-top-50px padding-bottom-50px text-center">
+        {!loading && <section className="info-area info-bg padding-top-50px padding-bottom-50px text-center">
           <div className="container">
             <div className="row">
               <div className="col-lg-4">
@@ -98,7 +114,7 @@ const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
               </div>
             </div>
           </div>
-        </section>
+        </section>}
 
         <TopAgencies topAgencies={topAgencies} />
         <PropertiesForRent propertiesForRent={propertiesForRent}/>

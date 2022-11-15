@@ -5,27 +5,30 @@ import { filterData, getFilterValues } from '../utils/filterData';
 import { baseUrl, fetchApi } from '../utils/fetchApi';
 import { AutoComplete } from 'antd';
 
-const SearchFilters = ({ page }) => {
+const SearchFilters = ({ page, setLoading, loading }) => {
     const [filters] = useState(filterData);
     const [searchTerm, setSearchTerm] = useState('');
     const [locationData, setLocationData] = useState();
     const [showLocations, setShowLocations] = useState(false);
-    const [loading, setLoading] = useState(false);
     const router = useRouter();
 
     const searchProperties = (filterValues) => {
         const path = router.pathname;
         const { query } = router;
+
+        setLoading(true);
     
-        const values = getFilterValues(filterValues)
+        const values = getFilterValues(filterValues);
     
         values.forEach((item) => {
           if(item.value && filterValues?.[item.name]) {
             query[item.name] = item.value
           }
-        })
+        });
 
         router.push({ pathname: '/search', query: query });
+
+        setLoading(false);
     
         /* if (page === '/search') {
             router.push({ pathname: page, query: query });
@@ -43,8 +46,8 @@ const SearchFilters = ({ page }) => {
             data?.hits?.map((location) => {
                 locates.push({label: location.name, value: [location.externalID, location.name]})
             });
-            setLoading(false);
             setLocationData(locates);
+            setLoading(false);
           };
     
           fetchData();
