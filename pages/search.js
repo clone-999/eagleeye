@@ -43,7 +43,7 @@ const Search = ({ properties }) => {
                                                             <h3 className="card-title">{property.title}</h3>
                                                             <p className="card-meta">
                                                                 <i className="la la-map-marker"></i> 
-                                                                {property.location[0].name}</p>
+                                                                {property.location[0].name}, {property.location[1].name}, {property.location[2].name}</p>
                                                             <a className="ellipsisFIX go-text-right mob-fs14" href="#" onClick={ () => false } title="dubai"></a>
 
                                                             <div className="card-rating pt-0 pb-0">
