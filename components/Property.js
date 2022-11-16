@@ -8,7 +8,7 @@ const Property = ({ property }) => {
         <li className="mix stars_3 hotels_amenities_" data-a="898" data-b="" id="apartment">
             <div className="card-item card-item-list marker-link row row-rtl item hotelslist">
                 <div className="card-img">
-                    <a href="#" className="d-block">
+                    <a href={`/property/${property.externalID}`} className="d-block">
                         <img src={property?.coverPhoto?.url} loading="lazy" className="main-img" alt="thumbnail"  data-expand="-20" />
                     </a>
                 </div>
@@ -20,7 +20,7 @@ const Property = ({ property }) => {
                             <p className="card-meta">
                                 <i className="la la-map-marker"></i> 
                                 {property.location[0].name}, {property.location[1].name}, {property.location[2].name}</p>
-                            <a className="ellipsisFIX go-text-right mob-fs14" href="#" onClick={ () => false } title="dubai"></a>
+                            <a className="ellipsisFIX go-text-right mob-fs14" href={`/property/${property.externalID}`} onClick={ () => false } title="dubai"></a>
 
                             <div className="card-rating pt-0 pb-0">
                                 <span className="review__text">
@@ -61,10 +61,10 @@ const Property = ({ property }) => {
                                 </div>
                                 <div className="clear"></div>
                                 <p className="mb-1">{property?.rentFrequency} | {property.agency.name}</p>
-                                <a href="#" className="more_details effect mt-0 btn-block" data-style="zoom-in">Details<i className="la la-angle-right"></i>
+                                <a href={`/property/${property.externalID}`} className="more_details effect mt-0 btn-block" data-style="zoom-in">Details<i className="la la-angle-right"></i>
                                 </a>
                                 
-                                <button type="submit" id="submit" class="btn btn-success mt-2 btn-sm effect" data-style="zoom-in" onClick={() => setShowNumber(!showNumber)}><i class="mdi mdi-phone"></i>  {showNumber ? property?.phoneNumber?.mobile : "Call Agency"}</button>
+                                <button type="submit" id="submit" className="btn btn-success mt-2 btn-sm effect" data-style="zoom-in" onClick={() => setShowNumber(!showNumber)}><i className="mdi mdi-phone"></i>  {showNumber ? property?.phoneNumber?.mobile : "Call Agency"}</button>
                             </div>
                         </div>
                     </div>

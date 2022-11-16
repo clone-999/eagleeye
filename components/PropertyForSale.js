@@ -6,7 +6,7 @@ const PropertyForSale = ({ propertyForSale }) => {
     
     return (
         <div key={propertyForSale.slug} className="col-lg-4">
-            <a href="#">
+            <a href={`/property/${propertyForSale.externalID}`}>
                 <div className="card-item destination-card">
                     <div className="card-img">
                         <img src={propertyForSale.coverPhoto.url} className="" style={{height: 250}} alt="destination-img" />
