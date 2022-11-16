@@ -4,8 +4,7 @@ import { baseUrl, fetchApi } from '../../utils/fetchApi';
 import 'antd/dist/antd.css';
 import { Carousel } from 'antd';
 import Image from 'next/image';
-import ReactMarkdown from "react-markdown";
-import remarkGfm from 'remark-gfm';
+import nl2br from 'react-nl2br';
 
 const PropertyDetail = ({ propertyDetails: { price, rentFrequency, rooms, title, baths, area, agency, isVerified, description, type, purpose, furnishingStatus, amenities, photos, phoneNumber, location } }) => {
 
@@ -77,7 +76,7 @@ const PropertyDetail = ({ propertyDetails: { price, rentFrequency, rooms, title,
                                     <div className="section-block"></div>
                                     <div className="single-content-item padding-top-30px padding-bottom-10px">
                                         <h3 className="title font-size-20">About {title}</h3>
-                                        <ReactMarkdown children={description} remarkPlugins={[remarkGfm]} />
+                                        {nl2br(description)}
                                     </div>
                                     <div className="section-block"></div>
                                 </div>
