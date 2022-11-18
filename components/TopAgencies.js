@@ -20,7 +20,7 @@ const TopAgencies = ({ topAgencies }) => {
                                 <div className="row">
                                     {topAgencies.map((topAgency) => (
                                         <div key={topAgency.slug} className="col-lg-4 responsive-column">
-                                            <a href='#'>
+                                            <a href={`/agency/${topAgency.slug}`}>
                                                 <div className="deal-card">
                                                     <div className="row" style={{
                                                         display: 'flex', 

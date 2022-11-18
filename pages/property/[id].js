@@ -30,8 +30,8 @@ const PropertyDetail = ({ propertyDetails: { price, rentFrequency, rooms, title,
                 <div className="single-content-item my-4">
                     <div className="row">
                         <div className="col-md-7">
-                            <h3 className="title font-size-26">{title}
-                            <div className="stars la la-star"></div>
+                            <h3 className="title font-size-26">{title} &nbsp;&nbsp;
+                                <img style={{width:100, background:'transparent' }} src={agency?.logo?.url} alt="" />
                             </h3>
 
                             <div className="d-flex align-items-center pt-2">
@@ -40,17 +40,19 @@ const PropertyDetail = ({ propertyDetails: { price, rentFrequency, rooms, title,
                             </div>
                         </div>
 
-                        <div className="col-md-2 bestvalue">
-                            <p><NumericFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'AED '} /></p>
-                            <p><strong><small>&nbsp;Price</small></strong></p>
+                        <div className="col-md-2 bestvalue" style={{ fontSize: 16 }}>
+                            <p><small>Price</small></p>
+                            <p><strong>&nbsp;<NumericFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'AED '} /></strong></p>
 
                         </div>
 
                         <div className="col-md-3">
-                            <div className="review-summary text-center p-1">
-                                <strong><h4 className="text-success"><strong>{agency.name}</strong><span> <i className="la la-thumbs-up"></i></span></h4></strong>
-                                <img style={{width:50, background:'transparent' }} src={agency?.logo?.url} alt="" />
-                            </div>
+                            <a href={`/agency/${agency.slug}`}>
+                                <div className="review-summary text-center p-1">
+                                    <strong><h4 className="text-success"><strong>{agency.name}</strong><span> <i className="la la-thumbs-up"></i></span></h4></strong>
+                                    <img style={{width:50, background:'transparent' }} src={agency?.logo?.url} alt="" />
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -80,6 +82,73 @@ const PropertyDetail = ({ propertyDetails: { price, rentFrequency, rooms, title,
                                     </div>
                                     <div className="section-block"></div>
                                 </div>
+                            </div>
+
+                            <div id="availability" className="page-scroll">
+                                <div className="section-heading mt-3 mb-3">
+                                    <h3 className="sec__title_left left-line">Property Information</h3>
+                                </div>
+
+                                <br />
+
+                                <div className='row'>
+                                    <div className='col-lg-6'>
+                                        <table className="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Type</td>
+                                                    <th>{type}</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Purpose</td>
+                                                    <th>{purpose}</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Furnishing Status</td>
+                                                    <th>{furnishingStatus}</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bedrooms</td>
+                                                    <th>{rooms}</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bathrooms</td>
+                                                    <th>{baths}</th>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div className='col-lg-6'>
+                                        <table className="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Rent Frequency</td>
+                                                    <th>{rentFrequency}</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Agency</td>
+                                                    <th>{agency.name}</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Area</td>
+                                                    <th>{area}</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Call</td>
+                                                    <th>{phoneNumber.mobile}</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Verified</td>
+                                                    <th>{isVerified ? "Yes" : "No"}</th>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
