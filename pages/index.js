@@ -7,6 +7,7 @@ import PropertiesForSale from "../components/PropertiesForSale";
 import SearchFilters from "../components/SearchFilters";
 import { SyncOutlined } from "@ant-design/icons";
 import HolidaySearch from "../components/HolidaySearch";
+import Banner from "../components/Banner";
 
 const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
   const [loading, setLoading] = useState(false);
@@ -136,6 +137,8 @@ const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
         <TopAgencies topAgencies={topAgencies} />
         <PropertiesForRent propertiesForRent={propertiesForRent}/>
         <PropertiesForSale propertiesForSale={propertiesForSale} />
+        <Banner />
+
       </>
     );
   };

@@ -28,8 +28,7 @@ const TopNav = () => {
                         <div className="col-lg-6">
                             <div className="header-top-content">
                                 <div className="header-right d-flex align-items-center justify-content-end">
-                                    <a href="/register" className="theme-btn theme-btn-small">Sign Up</a>
-                                    <a href="/login" className="theme-btn theme-btn-small theme-btn-transparent ml-1">Sign In</a>
+                                    
                                 </div>
                             </div>
                         </div>
