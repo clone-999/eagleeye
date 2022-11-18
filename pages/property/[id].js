@@ -26,7 +26,7 @@ const PropertyDetail = ({ propertyDetails: { price, rentFrequency, rooms, title,
                 </div>
             </div>
 
-            <div className="container">
+            <div className="container" id='photos'>
                 <div className="single-content-item my-4">
                     <div className="row">
                         <div className="col-md-7">
@@ -149,6 +149,46 @@ const PropertyDetail = ({ propertyDetails: { price, rentFrequency, rooms, title,
                                     </div>
                                 </div>
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="single-content-box">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="single-content-wrap padding-top-10px">
+                                <div id="amenities" className="page-scroll">
+                                    <div className="single-content-item padding-top-40px padding-bottom-20px">
+                                        <h3 className="title font-size-20">Amenities</h3>
+                                        <div className="amenities-feature-item pt-4">
+                                            <div className="row">
+                                                
+                                            {amenities?.map((item) => (
+                                                item?.amenities?.map((amenity) => (
+                                                    <div key={amenity.text} className="col-lg-4 responsive-column">
+                                                        <div className="single-tour-feature d-flex align-items-center mb-3">
+                                                            <div className="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                                
+                                                                <i className="la la-check"></i>
+                                                                
+                                                                
+                                                            </div>
+                                                            <div className="single-feature-titles">
+                                                                <h3 className="title font-size-15 font-weight-medium">{amenity.text}</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            ))}
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="section-block"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
