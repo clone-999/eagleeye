@@ -6,9 +6,11 @@ import PropertiesForRent from "../components/PropertiesForRent";
 import PropertiesForSale from "../components/PropertiesForSale";
 import SearchFilters from "../components/SearchFilters";
 import { SyncOutlined } from "@ant-design/icons";
+import HolidaySearch from "../components/HolidaySearch";
 
 const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
   const [loading, setLoading] = useState(false);
+  const [active, setActive] = useState('apartments');
   
     return (
       <>
@@ -46,19 +48,34 @@ const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
                   <div className="section-tab fade-in glass" style={{minHeight: 167}}>
                     <ul className="nav nav-tabs listitems" id="Tab" role="tablist">
                       <li data-position="1" className="nav-item" role="presentation">
-                        <button className="nav-link active" id="hotels-tab" data-bs-toggle="tab" data-bs-target="#hotels" type="button" role="tab" aria-controls="hotels" aria-selected="false" >
+                        <button className={(active == "apartments") ? "nav-link active" : "nav-link" } id="apartments-tab" data-bs-toggle="tab" data-bs-target="#apartments" type="button" role="tab" aria-controls="apartments" aria-selected="false" onClick={() => setActive('apartments')} >
                           <span className="d-xl-none d-lg-none">
                             <i className="la la-hotel mx-1"></i>
                           </span>
                           <span className="d-none d-lg-block d-xl-block">
                             <i className="la la-hotel mx-1"></i>
-                            Properties
+                            PROPERTIES
+                          </span>
+                        </button>
+                      </li>
+
+                      <li data-position="2" className="nav-item" role="presentation">
+                        <button className={(active == "holiday") ? "nav-link active" : "nav-link" } id="hotels-tab" data-bs-toggle="tab" data-bs-target="#hotels" type="button" role="tab" aria-controls="hotels" aria-selected="false" onClick={() => setActive('holiday')} >
+                          <span className="d-xl-none d-lg-none">
+                            <i className="la la-hotel mx-1"></i>
+                          </span>
+                          <span className="d-none d-lg-block d-xl-block">
+                            <i className="la la-hotel mx-1"></i>
+                            HOLIDAY HOMES
                           </span>
                         </button>
                       </li>
                     </ul>
 
-                    <SearchFilters page={'none'} setLoading={setLoading} loading={loading} />
+                    {(active == "apartments") &&
+                      <SearchFilters page={'none'} setLoading={setLoading} loading={loading} />}
+
+                    {(active == "holiday") && <HolidaySearch />}
 
                   </div>
 

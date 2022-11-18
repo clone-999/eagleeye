@@ -18,7 +18,7 @@ const PropertyForRent = ({propertyForRent}) => {
                     <h3 className="card-title"><a href={`/property/${propertyForRent.externalID}`}>{propertyForRent.title}</a></h3>
                     <p className="card-meta">{ propertyForRent.location[0].name }</p>
                     <div className="card-rating">
-                        <button type="submit" id="submit" class="btn btn-success btn-sm effect" data-style="zoom-in" onClick={() => setShowNumber(!showNumber)}><i class="mdi mdi-phone"></i>  {showNumber ? propertyForRent?.phoneNumber?.mobile : "Call Agency"}</button>
+                        <button type="submit" id="submit" className="btn btn-success btn-sm effect" data-style="zoom-in" onClick={() => setShowNumber(!showNumber)}><i className="mdi mdi-phone"></i>  {showNumber ? propertyForRent?.phoneNumber?.mobile : "Call Agency"}</button>
                     </div>
                     <div className="card-price d-flex align-items-center justify-content-between">
                         <p>

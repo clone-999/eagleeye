@@ -16,7 +16,7 @@ const PropertyForSale = ({ propertyForSale }) => {
                     <div className="card-body mb-1">
                         <span className="ratings d-flex align-items-center mr-1">
                             <span className="rating__text cw"> 
-                                <button type="submit" id="submit" class="btn btn-success btn-sm effect" data-style="zoom-in" onClick={() => setShowNumber(!showNumber)}><i class="mdi mdi-phone"></i>  {showNumber ? propertyForSale?.phoneNumber?.mobile : "Call Agency"}</button>
+                                <button type="submit" id="submit" className="btn btn-success btn-sm effect" data-style="zoom-in" onClick={() => setShowNumber(!showNumber)}><i className="mdi mdi-phone"></i>  {showNumber ? propertyForSale?.phoneNumber?.mobile : "Call Agency"}</button>
                             </span>
                         </span>
                         <h3 className="card-title">{propertyForSale.title}</h3>
