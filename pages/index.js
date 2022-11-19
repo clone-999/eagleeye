@@ -8,28 +8,17 @@ import SearchFilters from "../components/SearchFilters";
 import { SyncOutlined } from "@ant-design/icons";
 import HolidaySearch from "../components/HolidaySearch";
 import Banner from "../components/Banner";
+import { useRouter } from 'next/router';
 
 const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
   const [loading, setLoading] = useState(false);
   const [active, setActive] = useState('apartments');
+  const router = useRouter();
+  const { query } = router;
   
     return (
       <>
-        {loading && 
-        <section className="info-area info-bg padding-top-50px padding-bottom-50px text-center">
-          <div className="container">
-            <div className="row text-center">
-              <div className="col-md-9 pb-5">
-                <div className="d-flex justify-content-center p-5">
-                  <SyncOutlined spin className="display-1 text-danger p-5" />
-                </div>
-              </div>
-              <div className="col-md-3"></div>
-            </div>
-          </div>
-        </section>}
-
-        {!loading && <section className="hero-wrapper">
+        <section className="hero-wrapper">
           <div className="hero-box hero-bg active" data-bg="/assets/img/slider/bg1.jpg" style={{
             minHeight: 371,
             backgroundAttachment: 'fixed',
@@ -74,7 +63,7 @@ const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
                     </ul>
 
                     {(active == "apartments") &&
-                      <SearchFilters page={'none'} setLoading={setLoading} loading={loading} />}
+                      <SearchFilters page={'none'} setLoading={setLoading} loading={loading} rquery={query} />}
 
                     {(active == "holiday") && <HolidaySearch />}
 
@@ -84,9 +73,9 @@ const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
               </div>
             </div>
           </div>
-        </section> }
+        </section>
 
-        {!loading && <section className="info-area info-bg padding-top-50px padding-bottom-50px text-center">
+        <section className="info-area info-bg padding-top-50px padding-bottom-50px text-center">
           <div className="container">
             <div className="row">
               <div className="col-lg-4">
@@ -132,7 +121,7 @@ const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
               </div>
             </div>
           </div>
-        </section>}
+        </section>
 
         <TopAgencies topAgencies={topAgencies} />
         <PropertiesForRent propertiesForRent={propertiesForRent}/>

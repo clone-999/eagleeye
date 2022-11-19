@@ -7,7 +7,7 @@ const Banner = () => {
             <div className="row">
                 <div className="col-lg-12">
 
-                <div  style={{backgroundColor: '#145DA0', borderRadius: 20}}>
+                <div style={{backgroundColor: '#145DA0', borderRadius: 20}}>
                     <div className="container">
                         <div className="row align-items-center g-0">
                             <div className="col-xl-6 col-lg-6 col-md-12 padding-top-20px padding-bottom-20px">

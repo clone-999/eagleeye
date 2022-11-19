@@ -60,7 +60,7 @@ const Property = ({ property }) => {
                                     </span>
                                 </div>
                                 <div className="clear"></div>
-                                <p className="mb-1">{property?.rentFrequency} | {property.agency.name}</p>
+                                <p className="mb-1">{property?.rentFrequency} | {property?.agency?.name}</p>
                                 <a href={`/property/${property.externalID}`} className="more_details effect mt-0 btn-block" data-style="zoom-in">Details<i className="la la-angle-right"></i>
                                 </a>
                                 

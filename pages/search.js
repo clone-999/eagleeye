@@ -1,15 +1,11 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 import SearchFilters from '../components/SearchFilters';
 import { baseUrl, fetchApi } from '../utils/fetchApi';
-import { NumericFormat } from 'react-number-format';
 import { SyncOutlined } from "@ant-design/icons";
 import Property from '../components/Property';
 
-const Search = ({ properties }) => {
-    const [searchFilters, setSearchFilters] = useState(false);
+const Search = ({ properties, rquery }) => {
     const [loading, setLoading] = useState(false);
-    const router = useRouter();
 
     return (
         <>
@@ -19,7 +15,7 @@ const Search = ({ properties }) => {
                         <h2 className="text-center" style={{color:'#fff'}}>Search Your Dream Apartment</h2>
                         <br />
                         <div style={{padding:'50px 20'}} id="fadein">
-                            <SearchFilters page={'none'} setLoading={setLoading} loading={loading} />
+                            <SearchFilters page={'none'} setLoading={setLoading} loading={loading} rquery={rquery} />
                         </div>
                     </div>
                 </section>
@@ -73,6 +69,7 @@ export async function getServerSideProps({ query }) {
     return {
       props: {
         properties: data?.hits,
+        rquery: query
       },
     };
 }

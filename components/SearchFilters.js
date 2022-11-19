@@ -5,28 +5,27 @@ import { filterData, getFilterValues } from '../utils/filterData';
 import { baseUrl, fetchApi } from '../utils/fetchApi';
 import { AutoComplete } from 'antd';
 
-const SearchFilters = ({ page, setLoading, loading }) => {
+const SearchFilters = ({ page, setLoading, loading, rquery }) => {
     const [filters] = useState(filterData);
     const [searchTerm, setSearchTerm] = useState('');
     const [locationData, setLocationData] = useState();
     const [showLocations, setShowLocations] = useState(false);
     const router = useRouter();
+    const path = router.pathname;
+    //const { query } = router;
+    //console.log("rquery", rquery);
 
     const searchProperties = (filterValues) => {
-        const path = router.pathname;
-        const { query } = router;
-
+        
         setLoading(true);
     
         const values = getFilterValues(filterValues);
     
         values.forEach((item) => {
           if(item.value && filterValues?.[item.name]) {
-            query[item.name] = item.value
+            rquery[item.name] = item.value
           }
         });
-
-        router.push({ pathname: '/search', query: query });
 
         setLoading(false);
     
@@ -36,6 +35,12 @@ const SearchFilters = ({ page, setLoading, loading }) => {
             router.push({ pathname: path, query: query });
         } */
     };
+
+    const submitForm = (e) => {
+        e.preventDefault();
+
+        router.push({ pathname: '/search', query: rquery });
+    }
 
     useEffect(() => {
         if (searchTerm !== '') {
@@ -62,7 +67,7 @@ const SearchFilters = ({ page, setLoading, loading }) => {
                 <form id="hotels-search" method="post">
                     <div className="main_search contact-form-action">
                         <div className="row g-1">
-                        <div className="col-md-4" style={{paddingBottom: 10}}>
+                            <div className="col-md-4" style={{paddingBottom: 10}}>
                                 <div className="input-wrapper">
                                     <span className="label-text">Search Location</span>
                                     <div className="form-group">
@@ -90,12 +95,15 @@ const SearchFilters = ({ page, setLoading, loading }) => {
                                         <div className="form-group">
                                             <span className="la la-map-marker form-icon"></span>
                                             <div className="input-items">
-                                                <select name="city" className="city form-control" onChange={(e) => searchProperties({ [filter.queryName]: e.target.value })} placeholder={filter.placeholder} required>
-                                                    {filter?.items?.map((item) => (
-                                                        <option value={item.value} key={item.value}>
-                                                            {item.name}
-                                                        </option>
-                                                    ))}
+                                                <select name="city" className="city form-control" onChange={(e) => searchProperties({ [filter.queryName]: e.target.value })} placeholder={filter.placeholder} defaultValue={rquery[filter.queryName] ? rquery[filter.queryName] : ""} required>
+                                                    <option value="" disabled></option>
+                                                    {filter?.items?.map((item) => {
+                                                        //console.log(rquery[filter.queryName]);
+                                                        return (
+                                                            <option value={item.value} key={item.value}>
+                                                                {item.name}
+                                                            </option>)
+                                                    })}
                                                 </select>
                                             </div>
                                         </div>
@@ -103,6 +111,11 @@ const SearchFilters = ({ page, setLoading, loading }) => {
                                 </div>
                             ))}
                             
+                            <div className="col-md-4" style={{paddingBottom: 10}}>
+                                <div className="input-wrapper">
+                                    <button type="submit" id="submit" className="btn btn-primary mt-2 effect" data-style="zoom-in" onClick={ submitForm }><i className="mdi mdi-search"></i> Submit </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
