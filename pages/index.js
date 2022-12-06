@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import styles from './Index.module.css';
-import { baseUrl, fetchApi } from '../utils/fetchApi';
+import { baseUrl, fetchApi, airBaseUrl, airFetchApi } from '../utils/fetchApi';
 import TopAgencies from "../components/TopAgencies";
 import PropertiesForRent from "../components/PropertiesForRent";
 import PropertiesForSale from "../components/PropertiesForSale";
+import HolidayHomes from "../components/HolidayHomes";
 import SearchFilters from "../components/SearchFilters";
 import { SyncOutlined } from "@ant-design/icons";
 import HolidaySearch from "../components/HolidaySearch";
-import Banner from "../components/Banner";
 import { useRouter } from 'next/router';
 
-const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
+const Index = ({ propertiesForSale, propertiesForRent, topAgencies, holidayHomes }) => {
   const [loading, setLoading] = useState(false);
   const [active, setActive] = useState('apartments');
   const router = useRouter();
@@ -126,7 +126,7 @@ const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
         <TopAgencies topAgencies={topAgencies} />
         <PropertiesForRent propertiesForRent={propertiesForRent}/>
         <PropertiesForSale propertiesForSale={propertiesForSale} />
-        <Banner />
+        <HolidayHomes holidayHomes={holidayHomes}/>
 
       </>
     );
@@ -136,12 +136,14 @@ const Index = ({ propertiesForSale, propertiesForRent, topAgencies }) => {
     const propertiesForSale = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=6`);
     const propertiesForRent = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=6`);
     const topAgencies = await fetchApi(`${baseUrl}/agencies/list?query=dubai&hitsPerPage=9&page=0&lang=en`);
+    const holidayHomes = await airFetchApi(`${airBaseUrl}/v2/hotels/search?units=metric&adults_number=1&checkout_date=2022-12-08&filter_by_currency=AED&checkin_date=2022-12-07&locale=en-gb&dest_id=8631929&order_by=popularity&dest_type=hotel&room_number=1&page_number=0&include_adjacency=true`);
   
     return {
       props: {
         propertiesForSale: propertiesForSale?.hits,
         propertiesForRent: propertiesForRent?.hits,
-        topAgencies: topAgencies?.hits
+        topAgencies: topAgencies?.hits,
+        holidayHomes: holidayHomes?.result
       },
     };
   }
