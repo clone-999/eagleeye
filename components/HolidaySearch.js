@@ -13,14 +13,12 @@ const HolidaySearch = ({setLoading, loading, rquery}) => {
         if (searchTerm !== '') {
             const fetchData = async () => {
                 try {
-                    setLoading(true);
                     const data = await airFetchApi(`${airBaseUrl}/v1/hotels/locations?name=${searchTerm}&locale=en-gb`);
                     const locates = [];
                     data?.map((location) => {
                         locates.push({label: location.label, value: [location.dest_id, location.label]})
                     });
                     setLocationData(locates);
-                    setLoading(false);
                 } catch(error){
                     //
                 }
