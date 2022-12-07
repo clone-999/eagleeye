@@ -29,6 +29,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/holidayhome/[id].js"
+    ],
+    "/holsearch": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/holsearch.js"
     ]
   },
   "ampFirstPages": []
