@@ -7,7 +7,7 @@ export const fetchApi = async (url) => {
   const { data } = await axios.get((url), {
     headers: {
         'X-RapidAPI-Host': 'bayut.p.rapidapi.com',
-        'X-RapidAPI-Key': '83789d048amsh2cf971a96733e64p112fa2jsn6080c82aeeb0'
+        'X-RapidAPI-Key': '3bed496a49mshc772c975e0132e3p15fd27jsn86749bcd2c35'
     },
   });
     
@@ -18,14 +18,9 @@ export const airFetchApi = async (url) => {
   const { data } = await axios.get((url), {
     headers: {
         'X-RapidAPI-Host': 'booking-com.p.rapidapi.com',
-        'X-RapidAPI-Key': '83789d048amsh2cf971a96733e64p112fa2jsn6080c82aeeb0'
+        'X-RapidAPI-Key': '3bed496a49mshc772c975e0132e3p15fd27jsn86749bcd2c35'
     },
   });
     
   return data;
-}
-
-export const headersObj = {
-  'X-RapidAPI-Host': 'booking-com.p.rapidapi.com',
-  'X-RapidAPI-Key': '83789d048amsh2cf971a96733e64p112fa2jsn6080c82aeeb0'
 }
