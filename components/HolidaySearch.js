@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 const HolidaySearch = ({setLoading, loading, rquery}) => {
     const [searchTerm, setSearchTerm] = useState('');
-    const [locationData, setLocationData] = useState();
+    const [locationData, setLocationData] = useState([]);
     const [destinationId, setDestinationId] = useState();
     const router = useRouter();
 

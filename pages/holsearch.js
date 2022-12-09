@@ -56,7 +56,7 @@ const HolSearch = ({ holidayHomes, rquery }) => {
 
 export async function getServerSideProps({ query }) {
   
-    const data = await await airFetchApi(`${airBaseUrl}/v2/hotels/search?units=metric&adults_number=1&checkout_date=2022-12-09&filter_by_currency=AED&checkin_date=2022-12-08&locale=en-gb&dest_id=${query.dest_id}&order_by=popularity&dest_type=hotel&room_number=1&page_number=0&include_adjacency=true`);
+    const data = await await airFetchApi(`${airBaseUrl}/v2/hotels/search?units=metric&adults_number=1&checkout_date=2022-12-12&filter_by_currency=AED&checkin_date=2022-12-11&locale=en-gb&dest_id=${query.dest_id}&order_by=popularity&dest_type=hotel&room_number=1&page_number=0&include_adjacency=true`);
   
     return {
       props: {

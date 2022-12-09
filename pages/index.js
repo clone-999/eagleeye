@@ -136,7 +136,7 @@ const Index = ({ propertiesForSale, propertiesForRent, topAgencies, holidayHomes
     const propertiesForSale = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=6`);
     const propertiesForRent = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=6`);
     const topAgencies = await fetchApi(`${baseUrl}/agencies/list?query=dubai&hitsPerPage=9&page=0&lang=en`);
-    const holidayHomes = await airFetchApi(`${airBaseUrl}/v2/hotels/search?units=metric&adults_number=1&checkout_date=2022-12-09&filter_by_currency=AED&checkin_date=2022-12-08&locale=en-gb&dest_id=8631929&order_by=popularity&dest_type=hotel&room_number=1&page_number=0&include_adjacency=true`);
+    const holidayHomes = await airFetchApi(`${airBaseUrl}/v2/hotels/search?units=metric&adults_number=1&checkout_date=2022-12-12&filter_by_currency=AED&checkin_date=2022-12-11&locale=en-gb&dest_id=8631929&order_by=popularity&dest_type=hotel&room_number=1&page_number=0&include_adjacency=true`);
   
     return {
       props: {
